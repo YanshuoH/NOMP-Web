@@ -51,6 +51,7 @@ exports.new = ticketEditor.new;
 exports.create = ticketEditor.create;
 exports.edit = ticketEditor.edit;
 exports.delete = ticketEditor.delete;
+exports.deleteAll = ticketEditor.deleteAll;
 exports.update = ticketEditor.update;
 
 // fieldController

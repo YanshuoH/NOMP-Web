@@ -127,6 +127,9 @@ module.exports = function (app, passport, config) {
     // update
     app.put('/:type(need|offer)/:ticketId', tickets.update);
 
+    // mass deletion
+    app.delete('/:type(need|offer)/delete', tickets.deleteAll);
+
 /*
  * Matching and Searching
  */

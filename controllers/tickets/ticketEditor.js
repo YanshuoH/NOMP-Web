@@ -164,6 +164,40 @@ exports.delete = function(req, res) {
 }
 
 
+exports.deleteAll = function(req, res) {
+    if (!req.params.type || !req.query) {
+        return res.status(500);
+    } else {
+        // clean
+        if (!req.query.ticket_id.push) {
+            req.query.ticket_id = [req.query.ticket_id];
+        }
+
+        var types = ['need', 'offer'];
+        var models = [NeedModel, OfferModel];
+
+        var index = types.indexOf(req.params.type);
+        if (index === -1) {
+            return res.status(500);
+        }
+
+        var tickets = models[index].find({
+            '_id': { $in: req.query.ticket_id }
+        }, function(err, tickets) {
+            if (err) {
+                return res.status(500);
+            }
+
+            for (var i = 0; i < tickets.length; i++) {
+                tickets[i].desactive();
+            }
+
+            return res.status(200);
+        });
+    }
+}
+
+
 exports.update = function(req, res) {
     var ticket_type = req.params.type;
     var ticket = req.ticket;
