@@ -1,5 +1,7 @@
 This is a Needs-Offers Matcher Plateform.
 
+Not maintained by me anymore. Project moved to a private institution research.
+
 To start the project, you should:
 1. Get your node.js ready in your pc, you may download the node.js install file on the web site, or you may use git shell to down load node.js like this:
     npm install -g express
